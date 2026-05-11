@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 THIRD_PART_APPS = [
     "rest_framework",
 ]
-LOCAL_APPS = ["users", "projects", "tasks"]
+LOCAL_APPS = ["users", "projects", "tasks", "dashboard"]
 
 INSTALLED_APPS += THIRD_PART_APPS + LOCAL_APPS
 
