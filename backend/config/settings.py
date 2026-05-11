@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 THIRD_PART_APPS = [
     "rest_framework",
 ]
-LOCAL_APPS = ["users"]
+LOCAL_APPS = ["users", "projects"]
 
 INSTALLED_APPS += THIRD_PART_APPS + LOCAL_APPS
 
@@ -69,7 +69,7 @@ DATABASES = {
     )
 }
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = "users.User"
 
 
 # Password validation
