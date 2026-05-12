@@ -71,7 +71,8 @@ class TokenRefreshCookieView(APIView):
                 key="tm_access",
                 value=new_access,
                 httponly=True,
-                samesite="Lax",
+                samesite="None",
+                secure=False,
                 max_age=8 * 60 * 60,
             )
             return response
