@@ -1,16 +1,16 @@
-# ✅ Role-Based Task Management System
+# Role-Based Task Management System
 
 A full-stack task management application with strict role-based access control, built with **Django REST Framework** on the backend and **Next.js** on the frontend.
 
 ---
 
-## 📌 Overview
+## Overview
 
 This system allows teams to manage projects, tasks, and daily work logs across three distinct roles — Admin, Manager, and Employee. Each role sees a different dashboard and has different permissions over what they can create, view, or update.
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 Role-Based-Task-Management-System/
@@ -35,7 +35,7 @@ Role-Based-Task-Management-System/
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Technology | Version | Purpose |
@@ -61,7 +61,7 @@ Role-Based-Task-Management-System/
 
 ---
 
-## 👥 Roles & Permissions
+## Roles & Permissions
 
 This system has three roles with clearly separated access:
 
@@ -83,26 +83,26 @@ This system has three roles with clearly separated access:
 
 ---
 
-## 🔑 Features
+## Features
 
-### 🔐 Authentication
+### Authentication
 - Email + password login
 - JWT tokens stored in **HttpOnly cookies** (`tm_access`, `tm_refresh`) — never exposed to JavaScript
 - Access token valid for **8 hours**, refresh token for **1 day**
 - Automatic silent token refresh via Axios interceptor on 401 responses
 - Logout clears both cookies server-side
 
-### 👤 Users
+### Users
 - 3 roles: `admin`, `manager`, `employee`
 - Admin can create and list all users
 - Custom `UserManager` for email-based authentication (no username required)
 
-### 📁 Projects
+### Projects
 - Managers create projects; projects are owned by their creator
 - Admins can view all projects; Managers see only theirs
 - Each project stores task count
 
-### ✅ Tasks
+### Tasks
 - Belong to a project, optionally assigned to an employee
 - Statuses: `TODO` → `DONE`
 - Managers can assign tasks and change any field; Employees can only update status
@@ -116,7 +116,7 @@ This system has three roles with clearly separated access:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Backend Setup
 
@@ -166,7 +166,7 @@ Backend API: `http://localhost:8000/api/v1`
 
 ---
 
-## 🔐 API Endpoints
+## API Endpoints
 
 ### Authentication
 ```
@@ -211,7 +211,7 @@ GET    /api/v1/dashboard/       → Role-specific dashboard data
 
 ---
 
-## 🗃️ Data Model Overview
+## Data Model Overview
 
 ```
 User (admin | manager | employee)
@@ -225,7 +225,7 @@ User (admin | manager | employee)
 
 ---
 
-## 📁 Frontend Pages & Access
+## Frontend Pages & Access
 
 | Page | Path | Roles Allowed |
 |---|---|---|
@@ -240,7 +240,7 @@ Route access is enforced client-side via `ProtectedRoute` component and `canAcce
 
 ---
 
-## 🛠️ Developer Notes
+## Notes
 
 - JWT tokens live in **HttpOnly cookies**, making them inaccessible to XSS attacks
 - The Axios client automatically retries failed requests after a silent token refresh, queuing concurrent requests during the refresh to avoid race conditions
