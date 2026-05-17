@@ -109,7 +109,7 @@ This system has three roles with clearly separated access:
 - Admins have read-only access (cannot update tasks)
 - Paginated list (5 per page by default)
 
-### 📝 Daily Logs
+### Daily Logs
 - Employees and Managers can log notes against any of their tasks
 - Each log records the task, user, note text, and timestamp
 - Paginated and filterable by task
