@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAppRouter, ROUTES } from "@/lib/router";
 import { isAuthenticated, getUser } from "@/lib/auth";
@@ -9,8 +9,10 @@ import { Sidebar } from "./Sidebar";
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useAppRouter();
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (!isAuthenticated()) {
       router.replace(ROUTES.LOGIN);
       return;
@@ -20,6 +22,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       router.replace(ROUTES.DASHBOARD);
     }
   }, [router, pathname]);
+
+  if (!mounted) return null;
 
   const user = getUser();
   if (!isAuthenticated() || !user) return null;

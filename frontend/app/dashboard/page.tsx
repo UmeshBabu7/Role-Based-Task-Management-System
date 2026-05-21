@@ -125,7 +125,7 @@ function AdminStats({ data }: { data: AdminDashboard }) {
           <h3 style={{ margin: "0 0 16px", fontSize: 15, fontWeight: 600 }}>
             Users by Role
           </h3>
-          {data.users_by_role.map(({ role, count }) => (
+          {(data.users_by_role ?? []).map(({ role, count }) => (
             <div
               key={role}
               style={{
@@ -159,7 +159,7 @@ function AdminStats({ data }: { data: AdminDashboard }) {
           <h3 style={{ margin: "0 0 16px", fontSize: 15, fontWeight: 600 }}>
             Tasks by Status
           </h3>
-          {data.tasks_by_status.map(({ status, count }) => (
+          {(data.tasks_by_status ?? []).map(({ status, count }) => (
             <div
               key={status}
               style={{
