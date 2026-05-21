@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAppRouter, useReactRouter, ROUTES } from "@/lib/router";
+import { useAppRouter, usePathname, ROUTES } from "@/lib/router";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
@@ -24,7 +24,7 @@ export default function DailyLogsPage() {
   const user = getUser();
   const router = useAppRouter();
 
-  const { location, navigate } = useReactRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [taskPage, setTaskPage] = useState(1);
@@ -129,13 +129,13 @@ export default function DailyLogsPage() {
               textDecoration: "underline",
               opacity: 0.7,
             }}
-            onClick={() => navigate(ROUTES.DASHBOARD)}
+            onClick={() => router.push(ROUTES.DASHBOARD)}
           >
             Dashboard
           </span>
           <span style={{ opacity: 0.4 }}>›</span>
           <span style={{ opacity: 0.7 }}>
-            {location.pathname
+            {pathname
               .replace("/", "")
               .replace("-", " ")
               .replace(/^\w/, (c) => c.toUpperCase())}
